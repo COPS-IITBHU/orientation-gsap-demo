@@ -49,7 +49,7 @@ body {
 }
 
 img {
-  width: 500px;
+  max-width: 500px;
 }
 
 #particles {
@@ -65,6 +65,7 @@ img {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  padding: 0 25px 0 15px;
 }
 
 #welcome span {
@@ -107,4 +108,8 @@ img {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+html::-webkit-scrollbar {
+  width: 0em;
 }
