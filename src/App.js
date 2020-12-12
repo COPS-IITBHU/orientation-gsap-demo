@@ -1,10 +1,8 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from "gsap";
-import logo from './images/gsap.png';
 import './App.css';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
 	{
@@ -22,32 +20,11 @@ const sections = [
 ];
 
 const App = () => {
-
-	const [background, setBackground] = useState('#1C527D');
-	const headerRef = useRef(null);
-
 	const revealRefs = useRef([]);
 	revealRefs.current = [];
 
-	const toggleBackground = () => {
-		const color = background !== '#1C527D' ? '#1C527D' : '#DC7F30';
-		setBackground(color);
-	}
-
 	useEffect(() => {
-
-		gsap.to(headerRef.current, { backgroundColor: background, duration: 1, ease: 'none' });
-
-	}, [background]);
-
-	useEffect(() => {
-
-		gsap.from(headerRef.current, {
-			autoAlpha: 0,
-			ease: 'none',
-			delay: 1
-		});
-
+		gsap.registerPlugin(ScrollTrigger);
 		revealRefs.current.forEach((el, index) => {
 
 			gsap.fromTo(el, {
@@ -78,10 +55,6 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<header ref={headerRef} className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<button onClick={() => toggleBackground()}>Change background</button>
-			</header>
 			<main className="App-main">
 				{
 					sections.map(({ title, subtitle }) => (
