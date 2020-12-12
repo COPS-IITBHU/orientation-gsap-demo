@@ -1,17 +1,15 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
-import '../css/compare.css';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
+import "../css/compare.css";
 
-import before from '../images/before.jpg';
-import after from '../images/after.jpg';
-
+import before from "../images/before.jpg";
+import after from "../images/after.jpg";
 
 export default function Compare() {
-
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.utils.toArray(".comparisonSection").forEach(section => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".comparisonSection").forEach((section) => {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -20,16 +18,25 @@ export default function Compare() {
           end: () => "+=" + section.offsetWidth,
           scrub: true,
           pin: true,
-          anticipatePin: 1
+          anticipatePin: 1,
         },
-        defaults: { ease: "none" }
+        defaults: { ease: "none" },
       });
       // animate the container one way...
-      tl.fromTo(section.querySelector(".afterImage"), { xPercent: 100, x: 0 }, { xPercent: 0 })
+      tl.fromTo(
+        section.querySelector(".afterImage"),
+        { xPercent: 100, x: 0 },
+        { xPercent: 0 }
+      )
         // ...and the image the opposite way (at the same time)
-        .fromTo(section.querySelector(".afterImage img"), { xPercent: -100, x: 0 }, { xPercent: 0 }, 0);
+        .fromTo(
+          section.querySelector(".afterImage img"),
+          { xPercent: -100, x: 0 },
+          { xPercent: 0 },
+          0
+        );
     });
-  }, [])
+  }, []);
 
   return (
     <section className="bodyContainer comparisonSection">
@@ -40,5 +47,5 @@ export default function Compare() {
         <img src={after} alt="after" />
       </div>
     </section>
-  )
+  );
 }
