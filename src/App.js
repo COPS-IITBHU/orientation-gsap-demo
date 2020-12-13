@@ -6,19 +6,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const sections = [
   {
-    title: "Architecto aliquam",
+    title: "Web Development",
     subtitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, ea.",
+      "Building pleasing Web Apps which don't just look good but run with blazing speed",
   },
   {
-    title: "Ceritatis placeat",
+    title: "Mobile Development",
     subtitle:
-      "Dignissimos placeat cupiditate perferendis eaque praesentium similique officia dolore?",
+      "A combination of UI and UX that everyone wants to have on their smartphones.",
   },
   {
-    title: "Vitae voluptates",
+    title: "Bots",
     subtitle:
-      "In ullam et nulla repudiandae praesentium, laboriosam quas tempore fuga asperiores eveniet amet.",
+      "Our Dobby's which do the automation for us but we ain't freeing them :P",
+  },
+  {
+    title: "Game Development",
+    subtitle:
+      "Building the next CyberPunk2077 but let's complete this one first ;)",
   },
 ];
 
